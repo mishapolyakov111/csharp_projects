@@ -1,0 +1,36 @@
+﻿@using Itmo.ObjectOrientedProgramming.Lab5.Models.BankAccounts
+@using System.Collections.Generic
+@model System.Collections.Generic.IEnumerable<Itmo.ObjectOrientedProgramming.Lab5.Models.BankAccounts.IBankAccount>?
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+<h2>Accounts</h2>
+<div>
+    <table>
+        @foreach (var acc in Model!)
+        {
+            <tr>
+                <td><p># @acc.Id</p><p>Balance: @acc.Balance</p></td>
+            </tr>
+        
+            @using (Html.BeginForm("Accounts", "Home", FormMethod.Post))
+            {
+                <input type="hidden" name="accountId" value=@acc.Id >
+                                                             
+                <tr><td><p><input type="number" name="money" /> </p></td>
+                    <td><br/> </td></tr>
+                <tr><td><button name="action" value="Deposit"> Deposit </button>
+                        <button name="action" value="Withdraw"> Withdraw </button> 
+                        <button name="action" value="History"> History </button></td>
+                    <td></td></tr>
+            
+            }
+        }
+    </table>
+    <form action="~/Home/Index">
+    <button name="action" value="back"> Back </button>
+    </form>
+<div></div></div>

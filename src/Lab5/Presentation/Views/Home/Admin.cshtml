@@ -1,0 +1,27 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <h3> You entered as admin</h3>
+    <form method="post" action="~/Home/Admin">
+        <table>
+            <tr>
+                <td>
+                    <p>Enter User ID </p></td>
+                <td><input type="number" name="id"/> </td></tr>
+            <tr><td><input type="submit" value="Create Account"/> </td><td></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

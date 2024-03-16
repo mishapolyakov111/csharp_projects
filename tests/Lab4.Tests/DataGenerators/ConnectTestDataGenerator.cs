@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Itmo.ObjectOrientedProgramming.Lab4.Result;
+
+namespace Itmo.ObjectOrientedProgramming.Lab4.Tests.DataGenerators;
+
+public class ConnectTestDataGenerator : IEnumerable<object[]>
+{
+    private readonly List<object[]> _data = new List<object[]>
+    {
+        new object[]
+        {
+            new string[] { "connect", Environment.CurrentDirectory, "-m", "local" },
+            new Success($"Successfully connected to {Environment.CurrentDirectory}"),
+        },
+
+        new object[]
+        {
+            new string[] { "connect", "misha", "-m", "local" },
+            new Failure("Can't connect to this address"),
+        },
+    };
+
+    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+}

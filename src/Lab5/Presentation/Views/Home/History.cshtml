@@ -1,0 +1,29 @@
+﻿@model System.Collections.Generic.IEnumerable<Itmo.ObjectOrientedProgramming.Lab5.Models.BankTransaction.BankTransaction>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Account</td> <td>Type</td> <td>Money</td> <td>Result</td>
+    </tr>
+    @foreach (var transaction in Model)
+    {
+        <tr>
+            <td> @transaction.AccountId</td> <td>@transaction.BankTransactionType</td> <td>@transaction.Money</td> <td>@transaction.Result</td>
+        </tr>
+    }
+</table>
+<form action="~/Home/History">
+<button name="action" value="back"> Back </button>
+</form>
+    </body>
+</html>
